@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="refresh" content="5" />
+    <title>Active nodes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .node-container {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .node-id {
+            font-weight: bold;
+            color: #0066cc;
+        }
+        .node-ip {
+            color: #009900;
+        }
+    </style>
+</head>
+<body>
+    <h1>Active Nodes</h1>
+    {% for key, value in data.items() %}
+        <div class="node-container">
+            <p class="node-id">Node ID: {{ key }}</p>
+            <p class="node-ip">Node IP: {{ value['node_ip'] }}</p>
+        </div>
+    {% endfor %}
+</body>
+</html>

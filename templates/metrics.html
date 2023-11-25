@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="refresh" content="1" />
+    <title>Metrics</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    h1 {
+        color: #333;
+    }
+    table {
+        width: 50%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    </style>
+</head>
+<body>
+    <h1>Metrics</h1>
+    <table>
+        <tr>
+            <th>Node ID / Average</th>
+            <th>Mean Latency</th>
+            <th>Median Latency</th>
+            <th>Min Latency</th>
+            <th>Max Latency</th>
+        </tr>
+        {% for key, value in data.items() %}
+            <tr>
+                <td>{{ key }}</td>
+                <td>{{ value['metrics']['mean_latency'] }}</td>
+                <td>{{ value['metrics']['median_latency'] }}</td>
+                <td>{{ value['metrics']['min_latency'] }}</td>
+                <td>{{ value['metrics']['max_latency'] }}</td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <tr>
+                <b><td>Average</td>
+                <td>{{ avg['mean_latency'] }}</td>
+                <td>{{ avg['median_latency'] }}</td>
+                <td>{{ avg['min_latency'] }}</td>
+                <td>{{ avg['max_latency'] }}</td></b>
+            </tr>
+    </table>
+</body>
+</html>

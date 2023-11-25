@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--templates/testconfig.html-->
+<html>
+<head>
+    <title>Test Configurations</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    h1 {
+        color: #333;
+    }
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+    }
+    select,
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+    }
+    button {
+        background-color: #0066cc;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #004080;
+    }
+    </style>
+</head>
+<body>
+    <h1>Test Configurations</h1>
+    <form method="POST" action="{{url_for('post_testconfig')}}">
+        <label for="test_type">Test Type:</label>
+        <select name="test_type">
+            <option value="AVALANCHE">AVALANCHE</option>
+            <option value="TSUNAMI">TSUNAMI</option>
+        </select>
+        
+        <label for="test_message_delay">Test message delay:</label>
+        <input type="number" name="test_message_delay" min='0'>
+        
+        <label for="message_count_per_driver">Message count per driver:</label>
+        <input type="number" name="message_count_per_driver" min='0'>
+
+        <button type="Submit">Submit</button>
+    </form>
+</body>
+</html>
